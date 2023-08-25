@@ -36,16 +36,16 @@ client.on('messageCreate', async (message) => {
         conversationLog.push({
             role: 'user',
             content: msg.content,
-        })
-    })
+        });
+    });
 
 
     const result = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: conversationLog,
-    })
+    });
 
-    message.reply(result.choices[0].message)
-})
+    message.reply(result.choices[0].message);
+});
 
 client.login(process.env.DISCORD_TOKEN);
