@@ -30,7 +30,6 @@ client.on('messageCreate', async (message) => {
     prevMessages.reverse();
 
     prevMessages.forEach((msg) => {
-        if (message.content.startsWith('!')) return;
         if (msg.author.id !== client.user.id && message.author.bot) return;
         if (msg.author.id !== message.author.id) return;
 
@@ -46,7 +45,7 @@ client.on('messageCreate', async (message) => {
         messages: conversationLog,
     })
 
-    message.reply(result.choices[0].message);
+    message.reply(result.choices[0].message)
 })
 
 client.login(process.env.DISCORD_TOKEN);
